@@ -3,31 +3,32 @@ package com.example.helloandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mSearchWord;
+    private TextView mHelloText;
+    private EditText mSearchWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mSearchWord = (TextView) findViewById(R.id.searchWord);
-        mSearchWord.setText("");
+        mHelloText = (TextView) findViewById(R.id.helloText);
+        mSearchWord = (EditText) findViewById(R.id.searchWord);
+
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putString("TextView1", mSearchWord.getText().toString());
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
-        mSearchWord.setText(inState.getString("TextView1", ""));
     }
 
     @Override
