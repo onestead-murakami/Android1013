@@ -33,24 +33,30 @@ public class MainActivity extends AppCompatActivity {
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                final int time = Integer.parseInt(mTime.getText().toString()) - 1;
 
 //                //メインスレッド以外からUI操作（異常終了）
-//                String text = String.valueOf(time);
-//                mTime.setText(text);
+//                int time = Integer.parseInt(mTime.getText().toString()) - 1;
+//                if (time < 0) {
+//                    mTimer.cancel();
+//                    mTimer = null;
+//                } else {
+//                    String text = String.valueOf(time);
+//                    mTime.setText(text);
+//                }
 
-                if (time < 0) {
-                    mTimer.cancel();
-                    mTimer = null;
-                } else {
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        int time = Integer.parseInt(mTime.getText().toString()) - 1;
+                        if (time < 0) {
+                            mTimer.cancel();
+                            mTimer = null;
+                        } else {
                             String text = String.valueOf(time);
                             mTime.setText(text);
                         }
-                    });
-                }
+                    }
+                });
             }
         }, 1500, 1000);
     }
@@ -58,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        mTimer.cancel();
-        mTimer = null;
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
     }
 
     @Override
