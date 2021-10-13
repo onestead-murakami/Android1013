@@ -39,24 +39,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        if (savedInstanceState == null) {
+            mSearchButton.callOnClick();
+        }
+
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putString("TextView1", mSearchWord.getText().toString());
+        mSearchResult.saveState(outState);
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
-        mSearchWord.setText(inState.getString("TextView1", ""));
+        mSearchResult.restoreState(inState);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mSearchButton.callOnClick();
     }
     @Override
     protected void onPause() {

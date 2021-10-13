@@ -9,16 +9,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mSearchWord;
 
-    public MainActivity() {
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mSearchWord = (TextView) findViewById(R.id.searchWord);
-
+        mSearchWord.setText("");
     }
 
     @Override
