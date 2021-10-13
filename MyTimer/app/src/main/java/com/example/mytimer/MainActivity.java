@@ -62,4 +62,16 @@ public class MainActivity extends AppCompatActivity {
         mTimer = null;
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putCharSequence("time", mTime.getText());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+        mTime.setText(inState.getCharSequence("time"));
+    }
+
 }
