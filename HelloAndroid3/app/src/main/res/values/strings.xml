@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HelloAndroid</string>
+    <string name="label_hello_text">検索ワードを入力して検索ボタン</string>
+    <string name="label_search_result">検索</string>
+</resources>
