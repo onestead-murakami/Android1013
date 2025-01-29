@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Ex06</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_login">Let\'s Login</string>
+    <string name="login_id_hint">ログインID</string>
+    <string name="login_pw_hint">パスワード</string>
+    <string name="login_submit_text">ログイン</string>
+    <string name="logout_submit_text">ログアウト</string>
+    <string name="login_user">Let\'s Login</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
